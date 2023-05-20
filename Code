@@ -1,0 +1,44 @@
+import java.io.File; // class file
+import java.io.FileNotFoundException; // handles error
+import java.util.Scanner; // class scan 
+
+public class Serrano_Jovena{ // class declaration
+	public static void main(String args[]) throws FileNotFoundException { // main method start of the program
+
+		File file = new File("input.txt"); // access the file
+		Scanner scan = new Scanner(file); // scan the file 
+
+		String theWord = ""; 		// variable declaration that holds the string value of the final word
+		String data = "";		// variable declaration that hold the scan string value
+		String input ="";		// variable that holds the string value to be converted into int 
+		String part1 = "";		// vraiable that holds string for union resulting to the final word
+		String part2 = "";		// vraiable that holds string for union resulting to the final word
+		int N, su_x, len;		// variables that holds int to be use for cancellation and rearranging of the word
+
+		while (scan.hasNext()){ 	// start of condition
+	
+		data = scan.nextLine();		// process of storing/ scan  the string value
+		String arr[] = data.split(" "); // spliting of strings occurs
+		
+		input = arr[1];			// input gets the value within the index of array
+		N = Integer.parseInt(input);	// converting string into int
+
+		input = arr[2];			// input gets the value within the index of array
+		su_x = Integer.parseInt(input); // converting string into int
+    theWord = arr[0];		// variable gets the string value within the index array
+
+		theWord = theWord.substring(0, theWord.length () - su_x); // getting the string within index 0 up to its string length and will subtract to the 
+									  // value of su_x from the input file to get the final letters for the exact word
+
+		len = theWord.length();				 // gets the length of the string to be use later on
+
+		part1 = theWord.substring(len - N);		 // gets the string - N / separation occurs
+		part2 = theWord.substring(0, len - N);		 // gets the string 	
+		
+		System.out.println("**************");
+		System.out.println(part1 + part2);		// union of two separated string to get the final word / output
+		System.out.println("**************");
+
+		}	
+
+	}
